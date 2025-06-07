@@ -15,6 +15,17 @@ const canvas = document.querySelector("canvas.webgl");
 // Scene
 const scene = new THREE.Scene();
 
+// Fog
+const fog = new THREE.Fog("#262837", 1, 15); 
+scene.fog = fog; 
+
+/*
+    The paramters of the fog are:
+    - color 
+    - near: how far from the camera the fog starts
+    - far: how far from the camera will the fog be fully opaque
+*/
+
 /**
  * Textures
  */
@@ -177,6 +188,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setClearColor("#262837"); // set the color of the renderer to the same as the fog color
 
 /**
  * Animate
